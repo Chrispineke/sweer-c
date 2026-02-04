@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise OS | Command Center</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-mode">
+
+    <div id="login-overlay" class="overlay">
+        <div class="login-card">
+            <div class="glitch-logo">CORE.OS</div>
+            <p>Authorization Required</p>
+            <input type="password" id="pass-input" placeholder="Access Key (1234)">
+            <button onclick="attemptLogin()">UNLOCK SYSTEM</button>
+            <p id="login-error" class="error-msg"></p>
+        </div>
+    </div>
+
+    <div class="container hidden" id="main-app">
+        <aside class="sidebar">
+            <div class="brand">CORE.OS</div>
+            <nav>
+                <li class="active">Terminal</li>
+                <li id="theme-toggle">🌓 Toggle UI Theme</li>
+                <li onclick="logout()" class="logout-btn">Shutdown</li>
+            </nav>
+            
+            <div class="ticker-box">
+                <span class="status-dot"></span> LIVE FEED
+                <div id="news-ticker" class="ticker"></div>
+            </div>
+        </aside>
+
+        <main class="viewport">
+            <header>
+                <div class="info">
+                    <h1 id="greeting">System Booting...</h1>
+                    <p id="date-display"></p>
+                </div>
+                <div id="clock">00:00:00</div>
+            </header>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Environmental Data</h3>
+                    <div id="weather-info" class="weather-display">Uplink Pending...</div>
+                </div>
+
+                <div class="card">
+                    <h3>Operational Objectives</h3>
+                    <div class="input-row">
+                        <input type="text" id="taskInput" placeholder="New task...">
+                        <button id="addBtn">ADD</button>
+                    </div>
+                    <ul id="taskList"></ul>
+                    <button class="export-btn" onclick="exportData()">DOWNLOAD DATABASE (.TXT)</button>
+                </div>
+
+                <div class="card wide">
+                    <h3>System Load Metrics</h3>
+                    <canvas id="productivityChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
